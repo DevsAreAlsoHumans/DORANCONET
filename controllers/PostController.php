@@ -35,7 +35,7 @@ class PostController
                 header('Location: /posts');
                 exit;
             } else {
-                echo "Erreur lors de la création du post.";
+                echo "Failed : post could not be created.";
             }
         }
         require_once __DIR . '/../views/create_post.php';
