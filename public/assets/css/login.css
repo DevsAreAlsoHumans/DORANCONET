@@ -56,36 +56,36 @@ small>* {
 
 @media (min-width: 426px) {
   div>* {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
   }
 
   button {
-    font-size: 1.2rem;
+      font-size: 1.2rem;
   }
 
   form {
-    height: 20rem;
-    width: 20rem;
+      height: 20rem;
+      width: 20rem;
   }
 }
 
 @media (min-width: 769px) {
   div>* {
-    font-size: 1.5rem;
+      font-size: 1.5rem;
   }
 
   button {
-    border-radius: 7px;
-    font-size: 1.5rem;
+      border-radius: 7px;
+      font-size: 1.5rem;
   }
 
   input {
-    border-radius: 7px;
+      border-radius: 7px;
   }
 
   form {
-    height: 35rem;
-    width: 35rem;
-    border-radius: 7px
+      height: 35rem;
+      width: 35rem;
+      border-radius: 7px
   }
 }
