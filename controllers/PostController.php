@@ -25,7 +25,7 @@ class PostController
             $created_at = $POST['createdat'] ?? date('Y-m-d H:i:s');
 
             if (empty($user_id) || empty($content)) {
-                die("L'utilisateur et le contenu sont obligatoires !");
+                die("User and content are mandatory !");
             }
 
             // Create PostModel object
