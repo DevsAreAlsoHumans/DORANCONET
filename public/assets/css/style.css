@@ -1,0 +1,36 @@
+.posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFF;
+    background-color: #030028;
+    border-left: 5px #9b0517 solid;
+}
+.post {
+    width: 100%;
+    text-align: center;
+    border-bottom: 5px #9b0517 solid;
+}
+
+.name_user {
+    text-transform: uppercase;
+}
+
+.post_likes {
+    text-transform: uppercase;
+    margin-right: 10px;
+}
+
+.heart_likes {
+    max-width: 15px;
+}
+
+.calendar {
+    filter: invert(1);
+    max-width: 15px;
+}
+
+.post_image {
+    size: 100px;
+    max-height: 150px;
+}
