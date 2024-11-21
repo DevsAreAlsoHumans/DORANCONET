@@ -1,4 +1,4 @@
-<!DOCYPE html>
+<!DOCTYPE html>
   <html>
 
   <head>
@@ -16,7 +16,7 @@
     </header>
     <main>
 
-      <form action="/user/authentificate" method="post">
+      <form action="" method="post">
 
         <div>
           <label for="email">Email</label>
@@ -40,6 +40,8 @@
           </small>
         </div>
 
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']?>">
+        
         <button type="submit">Se Connecter</button>
       </form>
     </main>
