@@ -1,60 +1,47 @@
 <?php
 namespace App\Doranconet\Controllers;
-use App\Doranconet\UserModel;
-use http\Exception;
-use PDO;
-require "config/database.php";
+use App\Doranconet\UserModel\UserModel;
+require "../config/database.php";
 class AuthController
 {
-    private $pdo;
     public function login()
     {
         session_start();
-        $email = $password = "";
-        $email_err = $password_err = $login_err = "";
+        // Si la méthode de la requête est POST
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Vérification du token CSRF
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                die("Invalid CSRF token.");
+                die("Token CSRF invalide.");
             }
+
+            // Récupération des données du formulaire
             $email = htmlspecialchars(trim($_POST["email"]));
             $password = htmlspecialchars(trim($_POST["password"]));
+            var_dump($email);
+            var_dump($password);
+            $email_err = $password_err = $login_err = "";
+            // Validation des données
             if (empty($email)) {
-                $email_err = "Please enter an email address.";
+                $email_err = "Veuillez entrer un email.";
             } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                $email_err = "Please enter a valid email address.";
+                $email_err = "Veuillez entrer un email valide.";
             }
+
             if (empty($password)) {
-                $password_err = "Please enter a password.";
+                $password_err = "Veuillez entrer un mot de passe.";
             }
+
+            // Si aucune erreur de validation, vérifier l'utilisateur
             if (empty($email_err) && empty($password_err)) {
-                try {
-                    $stmt = $this->pdo->prepare("SELECT id, email, password FROM users WHERE email = :email");
-                    $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-                    $stmt->execute();
-                    if ($stmt->rowCount() === 1) {
-                        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-                        if (password_verify($password, $user['password'])) {
-                            $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $user['id'];
-                            $_SESSION["email"] = $user['email'];
-                            header("location: index.php");
-                            exit;
-                        } else {
-                            $login_err = "email or password is incorrect.";
-                        }
-                    } else {
-                        $login_err = "email or password is incorrect.";
-                    }
-                } catch (Exception $e) {
-                    error_log("Error while connecting: " . $e->getMessage());
-                    echo "An error has occurred. Please try again later.";
-                }
+                $userModel = new UserModel();  // Instanciation du modèle
+                $login_err = $userModel->verifUser($email, $password); // Vérification des identifiants
             }
-        }
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-        if (!empty($login_err)) {
-            echo "<p style='color:red;'>$login_err</p>";
         }
 
+        // Génération du token CSRF pour le formulaire
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+
+        // Inclusion de la vue et transmission des erreurs
+        require "views/login.php";
     }
 }
