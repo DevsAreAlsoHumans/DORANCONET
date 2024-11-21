@@ -7,6 +7,7 @@ use DateTime;
 class User
 {
 
+    private $pdo;
     private $id;
     private $last_name;
     private $first_name;
@@ -24,6 +25,9 @@ class User
 
     public function __construct(int $id, string $last_name, string $first_name, DateTime $date_of_birth, string $email, string $profil_picture, string $password, bool $is_active, DateTime $deleted_at)
     {
+
+        $this->pdo = getDatabaseConnection();
+
         $this->id = $id;
         $this->last_name = $last_name;
         $this->first_name = $first_name;
@@ -109,8 +113,11 @@ class User
 
 
 
-
     public function register() {
 
+        require('connect.php');
+
+
+        $query = "INSERT INTO 'users' (last_name, first_name, date_of_birth, email, profil_picture, password) VALUES ('$last_name', '$$first_name', '$date_of_birth', '$email', '$profil_picture','$password') ";
     }
 }
