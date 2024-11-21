@@ -3,10 +3,9 @@ namespace App\Doranconet\Controllers;
 use App\Doranconet\UserModel;
 use http\Exception;
 use PDO;
-
-require_once "config.php";
 class AuthController
 {
+    private $pdo;
     public function login()
     {
         session_start();
