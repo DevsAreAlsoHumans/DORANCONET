@@ -53,6 +53,15 @@ class PostModel {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    public function getPostById($id)
+    {
+        $conn = $this ->pdo;
+        $stmt = $conn->prepare("SELECT * FROM posts WHERE id = :id");
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch();
+
+    }
 
     public function getId()
     {
