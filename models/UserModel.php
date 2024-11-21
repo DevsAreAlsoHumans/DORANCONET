@@ -41,90 +41,121 @@ class User
         $this->deleted_at = $deleted_at;
     }
 
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
-    public function getLastName() {
+    public function getLastName()
+    {
         return $this->last_name;
     }
 
-    public function getFirstName() {   
+    public function getFirstName()
+    {
         return $this->first_name;
     }
 
-    public function getDateOfBirth() {
-        return $this->date_of_birth;    
+    public function getDateOfBirth()
+    {
+        return $this->date_of_birth;
     }
 
-    public function getEmail() {
-        return $this->email;    
+    public function getEmail()
+    {
+        return $this->email;
     }
 
-    public function getProfilPicture() { 
+    public function getProfilPicture()
+    {
         return $this->profil_picture;
-    }   
+    }
 
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
-    public function isActive() { 
+    public function isActive()
+    {
         return $this->is_active;
-    }   
+    }
 
-    public function isDeleted() {
+    public function isDeleted()
+    {
         return $this->deleted_at;
     }
-    
-    public function setId($id) {
+
+    public function setId($id)
+    {
         $this->id = $id;
     }
 
-    public function setLastName($last_name) {
+    public function setLastName($last_name)
+    {
         $this->last_name = $last_name;
     }
 
-    public function setFirstName($first_name) {
+    public function setFirstName($first_name)
+    {
         $this->first_name = $first_name;
     }
 
-    public function setDateOfBirth($date_of_birth) {    
+    public function setDateOfBirth($date_of_birth)
+    {
         $this->date_of_birth = $date_of_birth;
     }
 
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
     }
 
-    public function setProfilPicture($profil_picture) {
+    public function setProfilPicture($profil_picture)
+    {
         $this->profil_picture = $profil_picture;
     }
 
-    public function setPassword($password) {
-        $this->password = $password;   
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 
-    public function setIsActive($is_active) {
+    public function setIsActive($is_active)
+    {
         $this->is_active = $is_active;
     }
 
-    public function setDeletedAt($deleted_at) {
+    public function setDeletedAt($deleted_at)
+    {
         $this->deleted_at = $deleted_at;
     }
 
 
 
 
-    public function register(): bool {
+    public function register(): bool
+    {
 
         $query = "SELECT INTO 'users' WHERE email = $this->email";
+        $stmt = $this->pdo->prepare($query);
+
+        try {
+            $stmt->execute();
+            $email = true;
+        } catch (PDOException $e) {
+            $email = false;
+        }
+
+        if (!$email) {
+            return false;
+        }
 
         $query = "INSERT INTO 'users' (last_name, first_name, date_of_birth, email, profil_picture, password) VALUES ('$this->last_name', '$this->first_name', '$this->date_of_birth', '$this->email', '$this->profil_picture','$this->password') ";
         $stmt = $this->pdo->prepare($query);
-    
-        try{
+
+        try {
             $stmt->execute();
-        }catch(PDOException $e) {
+        } catch (PDOException $e) {
             return false;
         }
         return true;
