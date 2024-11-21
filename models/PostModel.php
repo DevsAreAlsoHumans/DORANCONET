@@ -9,7 +9,7 @@ class PostModel {
     {
         $this->pdo = getDatabaseConnection();
     }
-    public function savePost($user_id,$content,$image_path,$likes,$created_at): bool{
+    public function createPost($user_id,$content,$image_path,$likes,$created_at): bool{
         $conn = $this ->pdo;
         try {
             // prepare and bind
@@ -26,6 +26,12 @@ class PostModel {
             return false;
         }
 
+    }
+    public function getAllPosts(){
+        $conn = $this ->pdo;
+        $stmt = $conn->prepare("SELECT * FROM posts");
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
 
 }
