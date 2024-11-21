@@ -7,18 +7,7 @@ use App\models\PostModel;
 class PostController
 {
 
-    private $router;
-
-    public function __construct()
-    {
-        $this->router = new Router;
-
-        $this->router->map('GET', '/', function (ServerRequestInterface $request): ResponseInterface {
-            $response = new Response;
-            $response->getBody()->write('<h1>Hello, World!</h1>');
-            return $response;
-        });
-    }
+ 
 // Display all posts
 public function index()
 {
