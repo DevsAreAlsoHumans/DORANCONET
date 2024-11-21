@@ -1,4 +1,5 @@
 <?php
+namespace App\Doranconet\UserModel;
 class UserModel{
     public $id;
     public $firstName;
