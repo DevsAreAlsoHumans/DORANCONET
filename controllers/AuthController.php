@@ -3,6 +3,7 @@ namespace App\Doranconet\Controllers;
 use App\Doranconet\UserModel;
 use http\Exception;
 use PDO;
+require "config/database.php";
 class AuthController
 {
     private $pdo;
