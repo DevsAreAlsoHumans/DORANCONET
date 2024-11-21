@@ -4,6 +4,8 @@ namespace Models;
 
 use DateTime;
 
+use PDOException;
+
 class User
 {
 
@@ -113,11 +115,18 @@ class User
 
 
 
-    public function register() {
+    public function register(): bool {
 
-        require('connect.php');
+        $query = "SELECT INTO 'users' WHERE email = $this->email";
 
-
-        $query = "INSERT INTO 'users' (last_name, first_name, date_of_birth, email, profil_picture, password) VALUES ('$last_name', '$$first_name', '$date_of_birth', '$email', '$profil_picture','$password') ";
+        $query = "INSERT INTO 'users' (last_name, first_name, date_of_birth, email, profil_picture, password) VALUES ('$this->last_name', '$this->first_name', '$this->date_of_birth', '$this->email', '$this->profil_picture','$this->password') ";
+        $stmt = $this->pdo->prepare($query);
+    
+        try{
+            $stmt->execute();
+        }catch(PDOException $e) {
+            return false;
+        }
+        return true;
     }
 }
