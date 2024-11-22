@@ -2,7 +2,8 @@
 
 namespace App\controllers;
 
-use DORANCONET\models\PostModel;
+
+use PostModel;
 
 class Router
 {
@@ -69,9 +70,9 @@ class PostController
             }
 
             // Création d'un nouvel objet PostModel
-            $post = new PostModel(null, $userid, $content, $image_path, $likes, $created_at);
+            $post = new PostModel();
 
-            if ($post->insert()) {
+            if ($post->insert($userid, $content, $image_path, $likes, $created_at)) {
                 header('Location: /posts');
                 exit;
             } else {
