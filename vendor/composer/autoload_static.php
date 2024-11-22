@@ -26,6 +26,10 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
             'PhpParser\\' => 10,
             'PhpOption\\' => 10,
         ),
+        'L' => 
+        array (
+            'Lisaf\\Doranconet\\' => 17,
+        ),
         'G' => 
         array (
             'GrahamCampbell\\ResultType\\' => 26,
@@ -57,6 +61,10 @@ class ComposerStaticInite875ae8441d070d7dda5f4b47a2117aa
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Lisaf\\Doranconet\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'GrahamCampbell\\ResultType\\' => 
         array (

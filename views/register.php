@@ -26,6 +26,8 @@ unset($_SESSION['register_error'], $_SESSION['success_message']);
     <title>Register</title>
 </head>
 <body>
+    
+
 
     <div id="form">
         <img src="..\images\Doranco.png" alt="Logo Doranco">
