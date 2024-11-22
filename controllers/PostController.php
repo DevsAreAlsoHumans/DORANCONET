@@ -23,7 +23,7 @@ class PostController
 public function index()
 {
     $posts = Post::getAllPosts();
-    requireonce _DIR . '/../views/views_posts.php';
+    require_once __DIR__ . '/../views/views_posts.php';
     }
 
 // Display post creation form and treatment function
@@ -51,6 +51,6 @@ public function create()
             echo "Failed : post could not be created.";
         }
     }
-    require_once __DIR . '/../views/create_post.php';
+    require_once __DIR__ . '/../views/create_post.php';
     }
 }
