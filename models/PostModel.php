@@ -6,34 +6,34 @@ class PostModel {
    private $pdo;
 
     private $id;
-    private $user_id;
+    private $userId;
     private $content;
-    private $image_path;
+    private $imagePath;
     private $likes;
-    private $created_at;
+    private $createdAt;
 
 
     public function __construct()
     {
         $this->pdo = getDatabaseConnection();
     }
-    public function constructWithArguments($id, $user_id, $content, $image_path, $likes, $created_at)
+    public function constructWithArguments($id, $userId, $content, $imagePath, $likes, $createdAt)
     {
         $instance = new PostModel();
         $instance->id = $id;
-        $instance->user_id = $user_id;
+        $instance->userId = $userId;
         $instance->content = $content;
-        $instance->image_path = $image_path;
+        $instance->imagePath = $imagePath;
         $instance->likes = $likes;
-        $instance->created_at = $created_at;
+        $instance->createdAt = $createdAt;
         return $instance;
     }
-    public function insert($user_id,$content,$image_path,$likes,$created_at): bool{
+    public function insert($userId,$content,$imagePath,$likes,$createdAt): bool{
         $conn = $this->pdo;
         try {
             // prepare and bind
             $stmt = $conn->prepare("INSERT INTO posts (user_id, content, image_path, likes,created_at) VALUES (:user_id, :content, :image_path, :likes,:created_at)");
-            $stmt->bindParam(':user_id', $user_id);
+            $stmt->bindParam(':user_id', $userId);
             $stmt->bindParam(':content', $content);
             $stmt->bindParam(':image_path', $image_path);
             $stmt->bindParam(':likes', $likes);
@@ -75,12 +75,12 @@ class PostModel {
 
     public function getUserId()
     {
-        return $this->user_id;
+        return $this->userId;
     }
 
-    public function setUserId($user_id): void
+    public function setUserId($userId): void
     {
-        $this->user_id = $user_id;
+        $this->userId = $userId;
     }
 
     public function getContent()
@@ -95,12 +95,12 @@ class PostModel {
 
     public function getImagePath()
     {
-        return $this->image_path;
+        return $this->imagePath;
     }
 
-    public function setImagePath($image_path): void
+    public function setImagePath($imagePath): void
     {
-        $this->image_path = $image_path;
+        $this->imagePath = $imagePath;
     }
 
     public function getLikes()
@@ -115,12 +115,12 @@ class PostModel {
 
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
-    public function setCreatedAt($created_at): void
+    public function setCreatedAt($createdAt): void
     {
-        $this->created_at = $created_at;
+        $this->createdAt = $createdAt;
     }
 
 

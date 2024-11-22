@@ -11,9 +11,9 @@ class PostController
     {
 
         $posts = (new PostModel())->getAllPosts();
-        $posts_path = __DIR__.'/../views/view_posts.php';
-        if (file_exists($posts_path)) {
-            include($posts_path);
+        $postsPath = __DIR__.'/../views/view_posts.php';
+        if (file_exists($postsPath)) {
+            include($postsPath);
         } else {
             echo "Le fichier de vue 'view_posts.php' est introuvable.";
         }
@@ -23,19 +23,19 @@ class PostController
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $user_id = $_POST['user_id'] ?? null;
+            $userId = $_POST['user_id'] ?? null;
             $content = $_POST['content'] ?? '';
-            $image_path = $_POST['image_path'] ?? null;
+            $imagePath = $_POST['image_path'] ?? null;
             $likes = $_POST['likes'] ?? 0;
-            $created_at = $_POST['createdat'] ?? date('Y-m-d H:i:s');
+            $createdAt = $_POST['createdat'] ?? date('Y-m-d H:i:s');
 
 
-            if (empty($userid) || empty($content)) {
+            if (empty($userId) || empty($content)) {
                 die("User ID et contenu sont obligatoires !");
             }
             $post = new PostModel();
 
-            if ($post->insert($userid, $content, $image_path, $likes, $created_at)) {
+            if ($post->insert($userId, $content, $imagePath, $likes, $createdAt)) {
                 header('Location: /posts');
                 exit;
             } else {
