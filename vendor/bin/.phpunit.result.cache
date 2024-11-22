@@ -1,1 +1,1 @@
-{"version":1,"defects":{"DatabaseConnectionTest::testDatabaseConnection":8},"times":{"DatabaseConnectionTest::testDatabaseConnection":0.02}}
+{"version":1,"defects":{"DatabaseConnectionTest::testDatabaseConnection":8,"PostModelTest::testConstruct":7,"PostModelTest::testInsert":8,"PostModelTest::testGetPostById":7},"times":{"DatabaseConnectionTest::testDatabaseConnection":0.011,"PostModelTest::testConstruct":0.01,"PostModelTest::testInsert":0.005,"PostModelTest::testGetAllPosts":0.002,"PostModelTest::testGetPostById":0.004}}

@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../config/database.php';
 //require('../config/database.php');
 class PostModel {
    private $pdo;
