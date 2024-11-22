@@ -2,33 +2,7 @@
 include "../controllers/PostController.php";
 include "../models/PostModel.php"; 
 ?>
-<link rel="stylesheet" href="../public/assets/css/style.css">
-
-<?php
-/*
-$array = array(
-    "first_name" => "Killian",
-    "last_name" => "foot",
-    "content" => "test content",
-    "image_path" => "../public/assets/img/Memoji.jpg",
-    "likes" => "30k",
-    "created_at" => "20-06-23",
-);
-$array2 = array(
-    "first_name" => "Killian",
-    "last_name" => "foot",
-    "content" => "test content",
-    "image_path" => "../public/assets/img/Memoji.jpg",
-    "likes" => "30k",
-    "created_at" => "20-06-23",
-);
-
-$posts = array(
-    $array,
-    $array2
-)
-*/
-?>
+<link rel="stylesheet" href="../public/assets/css/view_posts.css">
 
 <div class="posts">
     <?php
