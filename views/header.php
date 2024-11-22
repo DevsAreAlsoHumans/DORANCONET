@@ -1,42 +1,63 @@
-<html>
-    <head>
-            <title></title>
-        
-              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-              <link rel="stylesheet"
-              type="text/css"
-              href="..\public\assets\css\header.css" />
-</head>
-    <body>
+<?php
+session_start();
+var_dump($_SESSION);
+?>
+<!DOCTYPE html>
+<html lang="fr">
 
-        <nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doranconet</title>
+    <link rel="stylesheet" type="text/css" href="..\public\assets\css\header.css" />
+    <link rel="stylesheet" href="../public/assets/css/login.css">
+    <link rel="stylesheet" href="../public/assets/css/style.css">
+    <link rel="stylesheet" href="../public\assets/css/footer.css">
+    <link rel="stylesheet" href="..\public\assets\css\register.css">
+</head>
+
+
+<body>
+    <nav>
+        <div class="menu">
             <ul class="menu">
                 <li class="image">
-                <a href="view_posts.php"><img src="..\images\doranco-white.png" alt=""></a>
-                <ul class="sub-menu">
-            </ul>
-                </li>
-                
-                <li class="menu-item">
-                    <a href="User">User</a>
+                    <a href="view_posts.php"><img src="..\images\doranco-white.png" alt=""></a>
                     <ul class="sub-menu">
                     </ul>
                 </li>
-                <li class="menu-item">
-                    <a href="create_post">Post</a>
-                </li>
-                <li class="menu-item">
-                    <a href="view_posts">Log Out</a>
-                    <ul class="sub-menu"> 
-                       
-                    </ul>
-                </li>
             </ul>
-        </nav>
+
+            <ul class="menu">
+                <?php
+                if (!empty($_SESSION["user"])) {
+                ?>
+
+                    <li class="menu-item">
+                        <a href="create_post">Post</a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="logout">Log Out</a>
+                        <ul class="sub-menu">
+                        </ul>
+                    </li>
+                <?php
+                } else {
+                ?>
+                    <li class="menu-item">
+                        <a href="login">Login</a>
+                        <ul class="sub-menu">
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a href="register">Register</a>
+                        <ul class="sub-menu">
+                        </ul>
+                    </li>
+                <?php
+                }
+                ?>
+            </ul>   
+        </div>
+    </nav>
     </div>
-</body>
-    
-
-
-    
-    
