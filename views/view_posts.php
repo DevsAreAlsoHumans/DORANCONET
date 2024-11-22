@@ -20,4 +20,8 @@ include "../models/PostModel.php";
         echo "Aucun post publié";
     }
     ?>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> 6ced4cd8bdf3b29a82ad86c21406782708902f8e
