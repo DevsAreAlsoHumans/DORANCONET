@@ -1,0 +1,33 @@
+/*Barre de navigation */
+
+
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.menu-item {
+    position: relative;
+}
+
+.menu-item a {
+    color: white;
+    text-decoration: none;
+    padding: 20px 20px;
+    display: block;
+}
+
+nav{
+    background-color: #030028;
+    height: 100px;
+}
+
+img{
+    padding-top: 13%;
+    width: 150px;
+}
