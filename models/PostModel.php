@@ -35,9 +35,9 @@ class PostModel {
             $stmt = $conn->prepare("INSERT INTO posts (user_id, content, image_path, likes,created_at) VALUES (:user_id, :content, :image_path, :likes,:created_at)");
             $stmt->bindParam(':user_id', $userId);
             $stmt->bindParam(':content', $content);
-            $stmt->bindParam(':image_path', $image_path);
+            $stmt->bindParam(':image_path', $imagePath);
             $stmt->bindParam(':likes', $likes);
-            $stmt->bindParam(':created_at', $created_at);
+            $stmt->bindParam(':created_at', $createdAt);
 
             return $stmt->execute();
         } catch (Exception $e)
