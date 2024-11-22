@@ -33,3 +33,9 @@ label,
 button {
   font-family: "Roboto Condensed", sans-serif;
 }
+
+
+body{
+  display: flex;
+  flex-direction: column;
+}

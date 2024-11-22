@@ -1,6 +1,7 @@
 <?php
-session_start();
-var_dump($_SESSION);
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -19,45 +20,44 @@ var_dump($_SESSION);
 
 <body>
     <nav>
-        <div class="menu">
-            <ul class="menu">
-                <li class="image">
-                    <a href="view_posts.php"><img src="..\images\doranco-white.png" alt=""></a>
+
+        <ul class="menu">
+            <li class="image">
+                <a href="view_posts.php"><img src="..\images\doranco-white.png" alt=""></a>
+                <ul class="sub-menu">
+                </ul>
+            </li>
+
+
+            <?php
+            if (!empty($_SESSION["user"])) {
+            ?>
+
+                <li class="menu-item">
+                    <a href="create_post">Post</a>
+                </li>
+                <li class="menu-item">
+                    <a href="logout">Log Out</a>
                     <ul class="sub-menu">
                     </ul>
                 </li>
-            </ul>
+            <?php
+            } else {
+            ?>
+                <li class="menu-item">
+                    <a href="login">Login</a>
+                    <ul class="sub-menu">
+                    </ul>
+                </li>
+                <li class="menu-item">
+                    <a href="register">Register</a>
+                    <ul class="sub-menu">
+                    </ul>
+                </li>
+            <?php
+            }
+            ?>
+        </ul>
 
-            <ul class="menu">
-                <?php
-                if (!empty($_SESSION["user"])) {
-                ?>
-
-                    <li class="menu-item">
-                        <a href="create_post">Post</a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="logout">Log Out</a>
-                        <ul class="sub-menu">
-                        </ul>
-                    </li>
-                <?php
-                } else {
-                ?>
-                    <li class="menu-item">
-                        <a href="login">Login</a>
-                        <ul class="sub-menu">
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a href="register">Register</a>
-                        <ul class="sub-menu">
-                        </ul>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>   
-        </div>
     </nav>
     </div>
