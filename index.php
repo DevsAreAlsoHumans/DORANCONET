@@ -11,4 +11,5 @@ include '/controllers/PostController.php';
 //$currentUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 //$router->dispatch($currentUri);
 $posts_controller = new PostController();
+$posts_controller -> index()
 ?>
