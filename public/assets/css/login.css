@@ -1,6 +1,6 @@
 main {
   margin: 0;
-  height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,7 +9,7 @@ main {
 
 form {
   padding: 2rem;
-  margin: 0;
+  margin: 4rem 0 4rem 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -18,10 +18,14 @@ form {
   border-radius: 3px;
 }
 
+form label {
+  color: var(--color-blue);
+}
+
 input {
   border-radius: 3px;
   border: solid 2px var(--color-black);
-  transition: border-color .4s;
+  transition: border-color 0.4s;
 }
 
 input:hover,
@@ -41,51 +45,51 @@ button {
   color: var(--color-white);
   border: none;
   border-radius: 3px;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: color .3s;
+  transition: color 0.3s;
 }
 
 button:hover {
   color: var(--color-black);
 }
 
-small>* {
+small > * {
   color: var(--color-red);
 }
 
 @media (min-width: 426px) {
-  div>* {
-      font-size: 1.2rem;
+  div > * {
+    font-size: 1.2rem;
   }
 
   button {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
 
   form {
-      height: 20rem;
-      width: 20rem;
+    height: 20rem;
+    width: 20rem;
   }
 }
 
 @media (min-width: 769px) {
-  div>* {
-      font-size: 1.5rem;
+  div > * {
+    font-size: 1.5rem;
   }
 
   button {
-      border-radius: 7px;
-      font-size: 1.5rem;
+    border-radius: 7px;
+    font-size: 1.5rem;
   }
 
   input {
-      border-radius: 7px;
+    border-radius: 7px;
   }
 
   form {
-      height: 35rem;
-      width: 35rem;
-      border-radius: 7px
+    height: 35rem;
+    width: 35rem;
+    border-radius: 7px;
   }
 }

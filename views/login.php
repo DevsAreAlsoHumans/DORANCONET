@@ -63,5 +63,8 @@ unset($_SESSION['email_err'], $_SESSION['password_err'], $_SESSION['login_err'],
         <button type="submit">Se Connecter</button>
     </form>
 </main>
+<?php require_once "footer.php";?>
 </body>
 </html>
+
+
