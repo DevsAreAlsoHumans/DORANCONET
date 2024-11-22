@@ -48,19 +48,30 @@ class PostModel {
     }
     public function getAllPosts(): array
     {
-        $conn = $this ->pdo;
-        $stmt = $conn->prepare("SELECT * FROM posts");
-        $stmt->execute();
-        return $stmt->fetchAll();
+        try {
+            // prepare and bind
+            $conn = $this ->pdo;
+            $stmt = $conn->prepare("SELECT * FROM posts");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (Exception $e)
+        {
+            return false;
+        }
     }
     public function getPostById($id)
     {
-        $conn = $this ->pdo;
-        $stmt = $conn->prepare("SELECT * FROM posts WHERE id = :id");
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        return $stmt->fetch();
 
+        try {
+            $conn = $this ->pdo;
+            $stmt = $conn->prepare("SELECT * FROM posts WHERE id = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (Exception $e)
+        {
+            return false;
+        }
     }
 
     public function getId()
