@@ -62,8 +62,8 @@ unset($_SESSION['email_err'], $_SESSION['password_err'], $_SESSION['login_err'],
         <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <button type="submit">Se Connecter</button>
     </form>
+    <?php require_once "footer.php";?>
 </main>
-<?php require_once "footer.php";?>
 </body>
 </html>
 

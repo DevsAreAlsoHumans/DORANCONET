@@ -5,6 +5,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: var(--color-blue);
+  flex-direction: columns;
 }
 
 form {
