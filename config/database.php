@@ -10,8 +10,8 @@ $dotenv->load();
 function getDatabaseConnection()
 {
     try {
-        $dsn = 'mysql:host=' . $_ENV['DB_HOST'] . ';port=' . $_ENV['DB_PORT'] . ';dbname=' . $_ENV['DB_DATABASE'];
-        $username = $_ENV['DB_USERNAME'];
+        $dsn = 'mysql:host=' . $_ENV['DB_HOST'] . ';port=' . $_ENV['DB_PORT'] . ';dbname=' . $_ENV['DB_NAME'];
+        $username = $_ENV['DB_USER'];
         $password = $_ENV['DB_PASSWORD'];
 
         $options = [
